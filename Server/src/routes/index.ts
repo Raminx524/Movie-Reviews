@@ -10,13 +10,13 @@ import {
   createMovie,
   deleteMovie,
   getMovies,
+  getReviews,
   getSingleMovie,
   updateMovie,
 } from "../controllers/movieController";
 import {
   createReview,
   deleteReview,
-  getReviews,
   updateReview,
 } from "../controllers/reviewController";
 import {
@@ -43,6 +43,7 @@ router.patch("/user/:id", verifyToken, updateUser);
 //? Movie Routes
 router.get("/movies", getMovies);
 router.get("/movies/:id", getSingleMovie);
+router.get("/movies/:id/reviews", getReviews);
 router.post("/movies", verifyAdmin, createMovie); //! Admin only
 router.patch("/movies/:id", verifyAdmin, updateMovie); //! Admin only
 router.delete("/movies/:id", verifyAdmin, deleteMovie); //! Admin only
@@ -53,7 +54,6 @@ router.get("/seedGenres", verifyAdmin, seedGenres); //! Admin only
 router.get("/reset", verifyAdmin, resetDatabase); //! Admin only
 
 //? Review Routes
-router.get("/reviews/:movieId", getReviews);
 router.post("/reviews", verifyToken, createReview);
 router.patch("/reviews/:id", verifyToken, updateReview);
 router.delete("/reviews/:id", verifyToken, deleteReview);

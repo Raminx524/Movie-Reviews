@@ -71,3 +71,16 @@ export const deleteMovie = async (req: Request, res: Response) => {
     res.status(503).json(error);
   }
 };
+
+export const getReviews = async (req: Request, res: Response) => {
+  const movieId = req.params.id;
+  try {
+    const reviews = await prismaClient.review.findMany({
+      where: { movieId: Number(movieId) },
+    });
+    res.status(200).json(reviews);
+  } catch (error) {
+    console.log(error);
+    res.status(503).json(error);
+  }
+};

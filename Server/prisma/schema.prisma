@@ -34,7 +34,7 @@ model Movie {
 }
 
 model Genre {
-  id    Int     @id
+  id    Int     @id  @default(autoincrement())
   name  String  @unique
   movies Movie[] @relation("MovieGenre")
 }

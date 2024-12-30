@@ -3,18 +3,6 @@ import { Request, Response } from "express";
 import { IRequestWithUserId } from "../interfaces/dataTypes";
 
 const prismaClient = new PrismaClient();
-export const getReviews = async (req: Request, res: Response) => {
-  const movieId = req.params.movieId;
-  try {
-    const reviews = await prismaClient.review.findMany({
-      where: { movieId: Number(movieId) },
-    });
-    res.status(200).json(reviews);
-  } catch (error) {
-    console.log(error);
-    res.status(503).json(error);
-  }
-};
 
 export const createReview = async (req: IRequestWithUserId, res: Response) => {
   if (!req.userId) {
