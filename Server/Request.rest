@@ -1,0 +1,46 @@
+###
+
+POST http://localhost:3000/api/v1/genre
+Content-Type: application/json
+
+{
+    "name":"Comedy"
+}
+
+###
+
+GET http://localhost:3000/api/v1/genre
+Content-Type: application/json
+
+###
+
+POST http://localhost:3000/api/v1/register
+Content-Type: application/json
+
+{
+    "username":"ramin",
+    "password":"1234",
+    "email":"ram@gmail.com",
+    "profile_pic_url":"https://i.etsystatic.com/32354559/r/il/90634f/4586700075/il_fullxfull.4586700075_94jc.jpg"
+}
+
+###
+
+POST http://localhost:3000/api/v1/login
+Content-Type: application/json
+
+{
+    "username":"ramin",
+    "password":"1234"
+}
+
+###
+
+GET https://api.themoviedb.org/3/trending/movie/day?language=en-US&page=1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyYjMyODk1YTU0ZGFhMjkxMDhkZmIzM2E1NGUzMTQ1NSIsIm5iZiI6MTY5NjMxODQzMS42NjEsInN1YiI6IjY1MWJjM2RmYzUwYWQyMDEwYmZmNGIxMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FweWKpfp8_sFN7yxNFBNpaZE7e3-EWR1T2wZQuqWIXg
+
+###
+
+GET http://localhost:3000/api/v1/seed
+Content-Type: application/json
