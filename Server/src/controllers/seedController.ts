@@ -124,13 +124,10 @@ export const seedGenres = async (req: Request, res: Response) => {
 
 export const resetDatabase = async (req: Request, res: Response) => {
   try {
-    await prismaClient.movie.deleteMany();
-
-    await prismaClient.genre.deleteMany();
-
-    await prismaClient.user.deleteMany();
-
     await prismaClient.review.deleteMany();
+    await prismaClient.movie.deleteMany();
+    await prismaClient.genre.deleteMany();
+    await prismaClient.user.deleteMany();
 
     console.log("Successfully cleared Movie and MovieGenre tables.");
     res.status(200).json({ message: "Database reset successfully!" });
@@ -178,7 +175,7 @@ export const seedMovies = async (req: Request, res: Response) => {
       title: movie.title,
       description: movie.description,
       release_date: movie.release_date,
-      poster_url: movie.poster_url,
+      poster_url: `https://image.tmdb.org/t/p/w500${movie.poster_url}`,
       genres: {
         connect: movie.genres.map((genre: number) => ({ id: genre })),
       },
